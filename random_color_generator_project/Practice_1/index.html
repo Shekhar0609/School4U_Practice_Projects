@@ -9,17 +9,17 @@
     <script type="module" src="./src/js/script.js"></script>
 </head>
 
-<body>
-    <div class="container">
-        <h2 class="header">color changer</h2>
+<body class="bg-gray-700 text-white flex justify-center">
+    <div id="container" class="flex flex-col justify-center items-center gap-5 mt-20 min-h-30 w-150 bg-amber-700">
+        <h2 id="header" class="text-3xl capitalize">color changer</h2>
 
-        <div class="color-container">
-            <button class="random-color">random color</button>
-            <input type="text" class="color-input" placeholder="Enter a color or hex (e.g. red or #FF0000)" />
-            <button class="apply-color">apply color</button>
+        <div id="color-container" class="flex justify-evenly items-center gap-5 w-full">
+            <button id="random-color" class="capitalize">random color</button>
+            <input type="text" id="color-input" placeholder="Enter a color or hex (e.g. red or #FF0000)" />
+            <button id="apply-color" class="capitalize">apply color</button>
         </div>
 
-        <span class="output-color-name">red</span>
+        <span id="output-color-name" class="capitalize">red</span>
     </div>
 </body>
 
