@@ -4,18 +4,40 @@ const inputColor = document.getElementById("color-input");
 const randomColor = document.querySelector("#random-color");
 const colorApply = document.querySelector("#apply-color");
 
-let outoutColorName = document.querySelector("#output-color-name");
+let outputColorName = document.querySelector("#output-color-name");
 
-colorApply.addEventListener("click", () => {
-  let format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+const colorArray = [
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "lightseagreen",
+  "cyan",
+  "tomato",
+  "lightcoral",
+  "acqua",
+  "white",
+  "black",
+];
 
-  if (inputColor.value.match(format)) {
-    outoutColorName.innerText = "please enter valid color name";
+colorApply.addEventListener("click", (color) => {
+  let format = `/^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/`;
+  color = inputColor.value;
+  if (!color.includes(format)) {
+    outputColorName.innerText = "please enter valid color name";
+    console.log(!color.includes(format));
   }
-  if (inputColor.value === "") {
-    outoutColorName.innerText = "please enter color name";
+  if (color === "") {
+    outputColorName.innerText = "please enter color name";
   } else {
-    bodyEl.style.backgroundColor = `${inputColor.value}`;
-    outoutColorName.innerText = bodyEl.style.backgroundColor;
+    bodyEl.style.backgroundColor = color;
+    outputColorName.innerText = bodyEl.style.backgroundColor;
   }
+});
+
+randomColor.addEventListener("click", () => {
+  let randomNumber = Math.floor(Math.random() * colorArray.length);
+  bodyEl.style.backgroundColor = colorArray[randomNumber];
+  outputColorName.innerText = bodyEl.style.backgroundColor;
+  console.log(colorArray[randomNumber]);
 });
