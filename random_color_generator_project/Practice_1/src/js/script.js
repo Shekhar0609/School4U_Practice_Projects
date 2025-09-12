@@ -20,9 +20,9 @@ const colorArray = [
   "black",
 ];
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
   inputColor.focus();
-})
+});
 
 colorApply.addEventListener("click", (color) => {
   color = inputColor.value;
