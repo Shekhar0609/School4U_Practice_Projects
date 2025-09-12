@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@media only screen and (max-width: 768px) {
+  #color-container {
+    flex-direction: column;
+  }
+
+  #color-input {
+    width: 80%;
+  }
+}
