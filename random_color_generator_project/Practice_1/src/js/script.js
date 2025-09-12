@@ -21,15 +21,14 @@ const colorArray = [
 ];
 
 colorApply.addEventListener("click", (color) => {
-  let format = `/^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/`;
   color = inputColor.value;
-  if (!color.includes(format)) {
-    outputColorName.innerText = "please enter valid color name";
-    console.log(!color.includes(format));
-  }
+
   if (color === "") {
     outputColorName.innerText = "please enter color name";
+    outputColorName.classList.add("text-red-800");
+    outputColorName.removeAttribute("style");
   } else {
+    outputColorName.classList.remove("text-red-800");
     bodyEl.style.backgroundColor = color;
     outputColorName.innerText = bodyEl.style.backgroundColor;
   }
@@ -39,5 +38,5 @@ randomColor.addEventListener("click", () => {
   let randomNumber = Math.floor(Math.random() * colorArray.length);
   bodyEl.style.backgroundColor = colorArray[randomNumber];
   outputColorName.innerText = bodyEl.style.backgroundColor;
-  console.log(colorArray[randomNumber]);
+  outputColorName.style.color = bodyEl.style.backgroundColor;
 });
