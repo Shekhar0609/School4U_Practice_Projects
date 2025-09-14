@@ -9,8 +9,21 @@
     <script type="module" src="./src/js/script.js"></script>
 </head>
 
-<body>
+<body class="bg-gray-500">
+    <div id="container">
+        <h2 id="heading">User Directory</h2>
 
+        <input type="text" id="searchInput" placeholder="Search by email or name">
+
+        <ol id="userList">
+            <!-- User items will be dynamically inserted here -->
+            <li id="userDetails">
+                <img src="https://cdn.pixabay.com/photo/2018/01/15/08/34/woman-3083453_1280.jpg">
+                <span id=userName>Pankaj Tripathi</span>
+                <span id=userMail>pankajmirja@tripathi.com</span>
+            </li>
+        </ol>
+    </div>
 </body>
 
 </html>
