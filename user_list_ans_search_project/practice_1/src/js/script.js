@@ -26,36 +26,37 @@ const users = [
   {
     profileUrl:
       "https://images.squarespace-cdn.com/content/v1/6204821bfe06b76898b431c5/80221678-0539-4495-8007-0096677e1eca/image00016.jpeg",
-    name: "Guddu Bhaiya",
-    email: "guddupandit@gmail.com",
+    name: "rastogi roman",
+    email: "rastogiroman@gmail.com",
   },
   {
     profileUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSLgW0m3TnEd8WIBSAej73ovDkRXGBukPkaQ&s",
-    name: "Munna Bhaiya",
-    email: "Munnababu@gmail.com",
+    name: "jamuna chauhan",
+    email: "jamunachauhan@gmail.com",
+  },
+  {
+    profileUrl:
+      "https://images.squarespace-cdn.com/content/v1/6204821bfe06b76898b431c5/80221678-0539-4495-8007-0096677e1eca/image00016.jpeg",
+    name: "prem jogi",
+    email: "premjogi@gmail.com",
   },
 ];
 
 const searchInput = document.getElementById("searchInput");
-let userListContainer = document.createElement("ol");
 
 document.addEventListener("DOMContentLoaded", function () {
+  let userListContainer = document.createElement("ol");
   userListContainer.id = "userListContainer";
-  userListContainer.className =
-    "w-full flex flex-col gap-3 overflow-y-auto max-h-90";
+  userListContainer.className = "w-full flex flex-col overflow-y-auto max-h-90";
   searchInput.insertAdjacentElement("afterend", userListContainer);
 
   for (let i = 0; i < users.length; i++) {
-    console.log(users[i].name);
-
     let userDetailsBox = document.createElement("li");
     userDetailsBox.id = "userDetailsBox";
     userDetailsBox.className =
       "flex items-center gap-3 rounded-xl p-2 cursor-pointer hover:bg-gray-300 duration-300";
     userListContainer.appendChild(userDetailsBox);
-
-    console.log(userListContainer);
 
     let userImage = document.createElement("img");
     userImage.id = "userImage";
@@ -83,4 +84,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-console.log(userListContainer);
+searchInput.addEventListener("keyup", serachFuntion);
+
+function serachFuntion(event) {
+  event.preventDefault();
+  let inputUppercase = searchInput.value.toLowerCase();
+
+  let filterArray = users.map((user) => {
+    return (
+      user.name.toLowerCase().includes(inputUppercase) ||
+      user.email.toLowerCase().includes(inputUppercase)
+    );
+  });
+
+  let userDetailsBox = document.querySelectorAll("#userDetailsBox");
+
+  userDetailsBox.forEach((box, index) => {
+    if (filterArray[index]) {
+      box.style.display = "flex";
+    } else {
+      box.style.display = "none";
+    }
+  });
+}
