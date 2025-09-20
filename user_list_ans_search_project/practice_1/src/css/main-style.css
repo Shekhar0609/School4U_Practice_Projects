@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+/* CSS class for styling the "no user found" message */
+.noUserFound {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff0000;
+  margin-top: 5 0px;
+  text-transform: capitalize;
+}

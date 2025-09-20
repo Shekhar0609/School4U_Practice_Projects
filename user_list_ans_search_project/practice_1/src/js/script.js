@@ -111,7 +111,6 @@ function serachFuntion(event) {
   });
 
   let userDetailsBox = document.querySelectorAll("#userDetailsBox"); // Select all user details box elements from the DOM
-
   // Loop through each user details box and set its display style based on the corresponding value in the filterArray array
 
   userDetailsBox.forEach((box, index) => {
@@ -122,6 +121,9 @@ function serachFuntion(event) {
     } else {
       // If the corresponding value in the filterArray is false, hide the user details box element
       box.style.display = "none"; // Set display style to 'none' to hide the user details box element
+      let userListContainer = document.querySelector("#userListContainer");
+      userListContainer.innerText = "no user found";
+      userListContainer.classList.add("noUserFound");
     }
   });
 }
