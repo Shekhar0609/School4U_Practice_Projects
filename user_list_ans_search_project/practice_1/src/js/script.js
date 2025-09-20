@@ -121,9 +121,9 @@ function serachFuntion(event) {
     } else {
       // If the corresponding value in the filterArray is false, hide the user details box element
       box.style.display = "none"; // Set display style to 'none' to hide the user details box element
-      let userListContainer = document.querySelector("#userListContainer");
-      userListContainer.innerText = "no user found";
-      userListContainer.classList.add("noUserFound");
+      let userListContainer = document.querySelector("#userListContainer"); // Select the user list container element from the DOM
+      userListContainer.innerText = "no user found"; // Set the inner text of the user list container to indicate that no users were found matching the search criteria
+      userListContainer.classList.add("noUserFound"); // Add a class to the user list container for styling purposes (e.g., to style the "no user found" message)
     }
   });
 }
