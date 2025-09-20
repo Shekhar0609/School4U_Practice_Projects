@@ -1,3 +1,4 @@
+// Sample user data array to demonstrate functionality
 const users = [
   {
     profileUrl:
@@ -43,68 +44,84 @@ const users = [
   },
 ];
 
-const searchInput = document.getElementById("searchInput");
+const searchInput = document.getElementById("searchInput"); // Input Element
+
+// Function to create and display user list on DOMContentLoaded
 
 document.addEventListener("DOMContentLoaded", function () {
-  searchInput.focus();
-  let userListContainer = document.createElement("ol");
-  userListContainer.id = "userListContainer";
-  userListContainer.className = "w-full flex flex-col overflow-y-auto max-h-90";
-  searchInput.insertAdjacentElement("afterend", userListContainer);
+  // Ensure the DOM is fully loaded
+  searchInput.focus(); // Focus on the search input field
+  let userListContainer = document.createElement("ol"); // Create an ordered list to hold user details
+  userListContainer.id = "userListContainer"; // Set ID for the user list container
+  userListContainer.className = "w-full flex flex-col overflow-y-auto max-h-90"; // Set class for styling
+  searchInput.insertAdjacentElement("afterend", userListContainer); // Insert the user list container after the search input
 
+  // Loop through the users array and create user detail boxes for each user dynamically
   for (let i = 0; i < users.length; i++) {
-    let userDetailsBox = document.createElement("li");
-    userDetailsBox.id = "userDetailsBox";
-    userDetailsBox.className =
+    let userDetailsBox = document.createElement("li"); // Create a list item for each user
+    userDetailsBox.id = "userDetailsBox"; // Set ID for the user details box element
+    userDetailsBox.className = // Set class for styling the user details box with Tailwind CSS classes
       "flex items-center gap-3 rounded-xl p-2 cursor-pointer hover:bg-gray-300 duration-300";
-    userListContainer.appendChild(userDetailsBox);
+    userListContainer.appendChild(userDetailsBox); // Append the user details box to the user list container
 
-    let userImage = document.createElement("img");
-    userImage.id = "userImage";
-    userImage.src = users[i].profileUrl;
-    userImage.alt = "User Image";
-    userImage.className = "w-13 h-13 rounded-full";
-    userDetailsBox.appendChild(userImage);
+    let userImage = document.createElement("img"); // Create an image element for the user's profile picture
+    userImage.id = "userImage"; // Set ID for the user image element
+    userImage.src = users[i].profileUrl; // Set the source of the image to the user's profile URL
+    userImage.alt = "User Image"; // Set alt text for the image
+    userImage.className = "w-13 h-13 rounded-full"; // Set class for styling the user image with Tailwind CSS classes
+    userDetailsBox.appendChild(userImage); // Append the user image to the user details box element
 
-    let userInfo = document.createElement("div");
-    userInfo.id = "userInfo";
-    userInfo.className = "flex flex-col";
-    userDetailsBox.appendChild(userInfo);
+    let userInfo = document.createElement("div"); // Create a div to hold user information (name and email)
+    userInfo.id = "userInfo"; // Set ID for the user info container element
+    userInfo.className = "flex flex-col"; // Set class for styling the user info container with Tailwind CSS classes
+    userDetailsBox.appendChild(userInfo); // Append the user info container to the user details box element
 
-    let userName = document.createElement("span");
-    userName.id = "userName";
-    userName.className = "capitalize font-[600]";
-    userName.innerText = users[i].name;
-    userInfo.appendChild(userName);
+    let userName = document.createElement("span"); // Create a span element for the user's name
+    userName.id = "userName"; // Set ID for the user name element
+    userName.className = "capitalize font-[600]"; // Set class for styling the user name with Tailwind CSS classes
+    userName.innerText = users[i].name; // Set the inner text of the user name to the user's name
+    userInfo.appendChild(userName); // Append the user name to the user info container element
 
-    let userMail = document.createElement("span");
-    userMail.id = "userMail";
-    userMail.className = "lowercase";
-    userMail.innerText = users[i].email;
-    userInfo.appendChild(userMail);
+    let userMail = document.createElement("span"); // Create a span element for the user's email address
+    userMail.id = "userMail"; // Set ID for the user email element
+    userMail.className = "lowercase"; // Set class for styling the user email with Tailwind CSS classes
+    userMail.innerText = users[i].email; // Set the inner text of the user email to the user's email address
+    userInfo.appendChild(userMail); // Append the user email to the user info container element
   }
 });
 
-searchInput.addEventListener("keyup", serachFuntion);
+searchInput.addEventListener("keyup", serachFuntion); // Add event listener to the search input field for 'keyup' event
+
+// Function to filter and display users based on search input value
 
 function serachFuntion(event) {
-  event.preventDefault();
-  let inputUppercase = searchInput.value.toLowerCase();
+  // Function to handle search input and filter user list
+  event.preventDefault(); // Prevent default behavior of the event (though not strictly necessary for 'keyup' event)
+  let inputUppercase = searchInput.value.toLowerCase(); // Get the current value of the search input and convert it to lowercase for case-insensitive comparison
+
+  // Create an array of boolean values indicating whether each user's name or email includes the search input value
 
   let filterArray = users.map((user) => {
+    // Map through the users array to create a new array based on the search criteria
     return (
-      user.name.toLowerCase().includes(inputUppercase) ||
-      user.email.toLowerCase().includes(inputUppercase)
+      // Return true if the user's name or email includes the search input value, otherwise false
+      user.name.toLowerCase().includes(inputUppercase) || // Check if the user's name includes the search input value (case-insensitive)
+      user.email.toLowerCase().includes(inputUppercase) // Check if the user's email includes the search input value (case-insensitive)
     );
   });
 
-  let userDetailsBox = document.querySelectorAll("#userDetailsBox");
+  let userDetailsBox = document.querySelectorAll("#userDetailsBox"); // Select all user details box elements from the DOM
+
+  // Loop through each user details box and set its display style based on the corresponding value in the filterArray array
 
   userDetailsBox.forEach((box, index) => {
+    // Loop through each user details box element and its index in the NodeList
     if (filterArray[index]) {
-      box.style.display = "flex";
+      // If the corresponding value in the filterArray is true, display the user details box element
+      box.style.display = "flex"; // Set display style to 'flex' to show the user details box element
     } else {
-      box.style.display = "none";
+      // If the corresponding value in the filterArray is false, hide the user details box element
+      box.style.display = "none"; // Set display style to 'none' to hide the user details box element
     }
   });
 }
