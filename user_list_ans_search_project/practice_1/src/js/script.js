@@ -46,6 +46,7 @@ const users = [
 const searchInput = document.getElementById("searchInput");
 
 document.addEventListener("DOMContentLoaded", function () {
+  searchInput.focus();
   let userListContainer = document.createElement("ol");
   userListContainer.id = "userListContainer";
   userListContainer.className = "w-full flex flex-col overflow-y-auto max-h-90";
