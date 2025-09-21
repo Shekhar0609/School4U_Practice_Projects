@@ -107,4 +107,21 @@ document.addEventListener("DOMContentLoaded", function () {
     userMailEl.innerText = userMail;
     userInfoEl.appendChild(userMailEl);
   });
+
+  searchInput.addEventListener("input", function (e) {
+    e.stopPropagation();
+    let searchTerm = e.target.value.toLowerCase();
+    let userInfo = document.querySelectorAll("#userInfo");
+
+    userInfo.forEach((user) => {
+      let name = user.querySelector("#userName").innerText.toLowerCase();
+      let email = user.querySelector("#userMail").innerText.toLowerCase();
+
+      if (name.includes(searchTerm) || email.includes(searchTerm)) {
+        user.parentElement.style.display = "flex";
+      } else {
+        user.parentElement.style.display = "none";
+      }
+    });
+  });
 });
