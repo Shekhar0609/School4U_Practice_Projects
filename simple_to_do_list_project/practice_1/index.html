@@ -10,8 +10,8 @@
     <script type="module" src="./src/js/script.js"></script>
 </head>
 
-<body class="bg-gray-900 min-h-screen flex items-center justify-center text-white">
-    <div id="container" class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+<body class="bg-gray-900 min-h-screen flex items-start justify-center text-white">
+    <div id="container" class="bg-gray-800 p-6 rounded-lg shadow-lg mt-5 min-h-100 w-full max-w-md">
         <h2 id="heading" class="text-center font-bold text-2xl mb-3">To-Do List</h2>
 
         <div id="inputAndAdd" class="flex justify-between items-center gap-1 mb-4 space-x-2">
@@ -21,15 +21,169 @@
                 class="cursor-pointer bg-gray-500 rounded-md px-4 py-1 active:scale-90 hover:bg-gray-400 duration-200">Add</button>
         </div>
 
-        <ul id="taskList" class="flex justify-between items-center gap-2">
-            <!-- Tasks will be added here dynamically -->
-            <li id="task">i have to go gym</li>
-            <span id="fa-xmark"
-                class="flex items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500 active:scale-95 hover:text-red-400 duration-200">
-                <i class="fa-solid fa-xmark"></i>
+        <div id="taskListContainer" class="max-h-100 overflow-auto">
+            <ul id="taskList" class="flex justify-between items-center gap-2 mb-2 bg-gray-700 p-2 rounded-md">
+                <!-- Tasks will be added here dynamically -->
+                <li id="task" class="max-h-20 overflow-auto break-all pr-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Commodi odio repudiandae blanditiis nihil nostrum perspiciatis iste porro, hic
+                    consequatur eveniet possimus totam veniam non aliquid maiores minus officia magni numquam sed ut,
+                    quod
+                    culpa. Cumque, eveniet! Deleniti consequuntur doloribus alias qui optio dolores ex. Ea fugiat porro,
+                    incidunt, similique unde sunt pariatur, natus necessitatibus dolorem quidem et possimus? Nemo dicta
+                    ratione porro architecto impedit explicabo dolores fuga provident libero officia hic nostrum harum
+                    omnis
+                    illo, repellat doloremque. Voluptatum accusantium unde numquam illum ea eius ab fugiat sapiente aut.
+                    Optio a nostrum illum quibusdam cumque cupiditate beatae ipsam excepturi architecto debitis.</li>
 
-            </span>
-        </ul>
+                <span id="completeAndDeleteBox" class="flex flex-col-reverse justify-baseline items-center gap-3">
+
+                    <span id="deleteTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-red-400 duration-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+
+                    <span id="completeTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-green-400 duration-200">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </span>
+            </ul>
+
+            <ul id="taskList" class="flex justify-between items-center gap-2 mb-2 bg-gray-700 p-2 rounded-md">
+                <!-- Tasks will be added here dynamically -->
+                <li id="task" class="max-h-20 overflow-auto break-all pr-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Commodi odio repudiandae blanditiis nihil nostrum perspiciatis iste porro, hic
+                    consequatur eveniet possimus totam veniam non aliquid maiores minus officia magni numquam sed ut,
+                    quod
+                    culpa. Cumque, eveniet! Deleniti consequuntur doloribus alias qui optio dolores ex. Ea fugiat porro,
+                    incidunt, similique unde sunt pariatur, natus necessitatibus dolorem quidem et possimus? Nemo dicta
+                    ratione porro architecto impedit explicabo dolores fuga provident libero officia hic nostrum harum
+                    omnis
+                    illo, repellat doloremque. Voluptatum accusantium unde numquam illum ea eius ab fugiat sapiente aut.
+                    Optio a nostrum illum quibusdam cumque cupiditate beatae ipsam excepturi architecto debitis.</li>
+
+                <span id="completeAndDeleteBox" class="flex flex-col-reverse justify-baseline items-center gap-3">
+
+                    <span id="deleteTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-red-400 duration-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+
+                    <span id="completeTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-green-400 duration-200">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </span>
+            </ul>
+
+            <ul id="taskList" class="flex justify-between items-center gap-2 mb-2 bg-gray-700 p-2 rounded-md">
+                <!-- Tasks will be added here dynamically -->
+                <li id="task" class="max-h-20 overflow-auto break-all pr-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Commodi odio repudiandae blanditiis nihil nostrum perspiciatis iste porro, hic
+                    consequatur eveniet possimus totam veniam non aliquid maiores minus officia magni numquam sed ut,
+                    quod
+                    culpa. Cumque, eveniet! Deleniti consequuntur doloribus alias qui optio dolores ex. Ea fugiat porro,
+                    incidunt, similique unde sunt pariatur, natus necessitatibus dolorem quidem et possimus? Nemo dicta
+                    ratione porro architecto impedit explicabo dolores fuga provident libero officia hic nostrum harum
+                    omnis
+                    illo, repellat doloremque. Voluptatum accusantium unde numquam illum ea eius ab fugiat sapiente aut.
+                    Optio a nostrum illum quibusdam cumque cupiditate beatae ipsam excepturi architecto debitis.</li>
+
+                <span id="completeAndDeleteBox" class="flex flex-col-reverse justify-baseline items-center gap-3">
+
+                    <span id="deleteTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-red-400 duration-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+
+                    <span id="completeTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-green-400 duration-200">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </span>
+            </ul>
+
+                        <ul id="taskList" class="flex justify-between items-center gap-2 mb-2 bg-gray-700 p-2 rounded-md">
+                <!-- Tasks will be added here dynamically -->
+                <li id="task" class="max-h-20 overflow-auto break-all pr-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Commodi odio repudiandae blanditiis nihil nostrum perspiciatis iste porro, hic
+                    consequatur eveniet possimus totam veniam non aliquid maiores minus officia magni numquam sed ut,
+                    quod
+                    culpa. Cumque, eveniet! Deleniti consequuntur doloribus alias qui optio dolores ex. Ea fugiat porro,
+                    incidunt, similique unde sunt pariatur, natus necessitatibus dolorem quidem et possimus? Nemo dicta
+                    ratione porro architecto impedit explicabo dolores fuga provident libero officia hic nostrum harum
+                    omnis
+                    illo, repellat doloremque. Voluptatum accusantium unde numquam illum ea eius ab fugiat sapiente aut.
+                    Optio a nostrum illum quibusdam cumque cupiditate beatae ipsam excepturi architecto debitis.</li>
+
+                <span id="completeAndDeleteBox" class="flex flex-col-reverse justify-baseline items-center gap-3">
+
+                    <span id="deleteTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-red-400 duration-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+
+                    <span id="completeTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-green-400 duration-200">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </span>
+            </ul>
+
+                        <ul id="taskList" class="flex justify-between items-center gap-2 mb-2 bg-gray-700 p-2 rounded-md">
+                <!-- Tasks will be added here dynamically -->
+                <li id="task" class="max-h-20 overflow-auto break-all pr-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Commodi odio repudiandae blanditiis nihil nostrum perspiciatis iste porro, hic
+                    consequatur eveniet possimus totam veniam non aliquid maiores minus officia magni numquam sed ut,
+                    quod
+                    culpa. Cumque, eveniet! Deleniti consequuntur doloribus alias qui optio dolores ex. Ea fugiat porro,
+                    incidunt, similique unde sunt pariatur, natus necessitatibus dolorem quidem et possimus? Nemo dicta
+                    ratione porro architecto impedit explicabo dolores fuga provident libero officia hic nostrum harum
+                    omnis
+                    illo, repellat doloremque. Voluptatum accusantium unde numquam illum ea eius ab fugiat sapiente aut.
+                    Optio a nostrum illum quibusdam cumque cupiditate beatae ipsam excepturi architecto debitis.</li>
+
+                <span id="completeAndDeleteBox" class="flex flex-col-reverse justify-baseline items-center gap-3">
+
+                    <span id="deleteTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-red-400 duration-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+
+                    <span id="completeTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-green-400 duration-200">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </span>
+            </ul>
+
+                        <ul id="taskList" class="flex justify-between items-center gap-2 mb-2 bg-gray-700 p-2 rounded-md">
+                <!-- Tasks will be added here dynamically -->
+                <li id="task" class="max-h-20 overflow-auto break-all pr-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Commodi odio repudiandae blanditiis nihil nostrum perspiciatis iste porro, hic
+                    consequatur eveniet possimus totam veniam non aliquid maiores minus officia magni numquam sed ut,
+                    quod
+                    culpa. Cumque, eveniet! Deleniti consequuntur doloribus alias qui optio dolores ex. Ea fugiat porro,
+                    incidunt, similique unde sunt pariatur, natus necessitatibus dolorem quidem et possimus? Nemo dicta
+                    ratione porro architecto impedit explicabo dolores fuga provident libero officia hic nostrum harum
+                    omnis
+                    illo, repellat doloremque. Voluptatum accusantium unde numquam illum ea eius ab fugiat sapiente aut.
+                    Optio a nostrum illum quibusdam cumque cupiditate beatae ipsam excepturi architecto debitis.</li>
+
+                <span id="completeAndDeleteBox" class="flex flex-col-reverse justify-baseline items-center gap-3">
+
+                    <span id="deleteTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-red-400 duration-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+
+                    <span id="completeTask" class="flex justify-baseline items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500
+                    active:scale-90 hover:text-green-400 duration-200">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </span>
+            </ul>
+        </div>
     </div>
 </body>
 
