@@ -11,18 +11,24 @@
 </head>
 
 <body class="bg-gray-900 min-h-screen flex items-center justify-center text-white">
-    <div id="container">
-        <h2 id="heading">To-Do List</h2>
+    <div id="container" class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 id="heading" class="text-center font-bold text-2xl mb-3">To-Do List</h2>
 
-        <div id="inputAndAdd">
-            <input type="text" id="taskInput" placeholder="Add a new task..." />
-            <button id="addButton">Add</button>
+        <div id="inputAndAdd" class="flex justify-between items-center gap-1 mb-4 space-x-2">
+            <input type="text" id="taskInput" placeholder="Add a new task..."
+                class="w-full border-1 px-2 py-1 rounded-md" />
+            <button id="addButton"
+                class="cursor-pointer bg-gray-500 rounded-md px-4 py-1 active:scale-90 hover:bg-gray-400 duration-200">Add</button>
         </div>
 
-        <ul id="taskList">
+        <ul id="taskList" class="flex justify-between items-center gap-2">
             <!-- Tasks will be added here dynamically -->
             <li id="task">i have to go gym</li>
-            <i id="fa-xmark" class="fa-solid fa-xmark"></i>
+            <span id="fa-xmark"
+                class="flex items-center gap-2 p-1 rounded-md cursor-pointer bg-gray-500 active:scale-95 hover:text-red-400 duration-200">
+                <i class="fa-solid fa-xmark"></i>
+
+            </span>
         </ul>
     </div>
 </body>
