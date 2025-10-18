@@ -3,6 +3,7 @@
     "tailwindcss": "npx @tailwindcss/cli -i ./src/css/style.css -o ./src/css/output.css --watch"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@tailwindcss/cli": "^4.1.14",
     "tailwindcss": "^4.1.14"
   }
