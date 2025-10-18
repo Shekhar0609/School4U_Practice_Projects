@@ -9,6 +9,37 @@
     <link rel="stylesheet" href="./src/css/output.css">
     <script type="module" src="./src/js/script.js"></script>
 </head>
+<div id="container">
+    <h2 id="heading">To-Do List</h2>
+
+    <div id="inputAndAdd">
+        <input type="text" id="taskInput" placeholder="Add a new task..." />
+        <button id="addButton" title="Add Task"><i class="fa-solid fa-plus"></i></button>
+    </div>
+
+    <div id="taskListContainer">
+        <ul id="taskList" type="1">
+            <li id="task">Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Vero veritatis pariatur laudantium cupiditate, quam ipsam optio
+                dolores ut aspernatur quo sapiente delectus libero voluptate facilis possimus voluptas tempora
+                tenetur cum!</li>
+
+            <div id="editCompleteDeleteButtons">
+                <buttton id="editTask" title="Edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </buttton>
+
+                <buttton id="completeTask" title="Complete">
+                    <i class="fa-solid fa-check"></i>
+                </buttton>
+
+                <buttton id="deleteTask" title="Delete">
+                    <i class="fa-solid fa-xmark"></i>
+                </buttton>
+            </div>
+        </ul>
+    </div>
+</div>
 
 <body>
 
