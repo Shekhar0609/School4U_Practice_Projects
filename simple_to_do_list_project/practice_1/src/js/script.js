@@ -110,6 +110,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
 
+      taskItemEl.addEventListener("dblclick", function () {
+        this.style.userSelect = "none";
+        this.contentEditable = true;
+        this.focus();
+
+        this.addEventListener("blur", function () {
+          this.contentEditable = false;
+        });
+      });
+
       (function taskItemElHeightHandler() {
         if (taskItemEl.scrollHeight > taskItemEl.clientHeight) {
           editCompleteDeleteBox.classList.remove("flex-row");
