@@ -92,22 +92,42 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteTaskEL.innerHTML = '<i class="fa-solid fa-xmark"></i>';
       editCompleteDeleteButtonsEl.appendChild(deleteTaskEL);
 
-      editTaskEL.addEventListener("click", () => {
-        taskEL.contentEditable = true;
-        taskEL.focus();
-      });
+      function editTaskFunction() {
+        if (taskEL.classList.contains("task-completed")) {
+          taskEL.contentEditable = false;
+          alert("please change to the uncompleted task.");
+        } else {
+          taskEL.contentEditable = true;
+          taskEL.focus();
+        }
+      }
 
-      taskEL.addEventListener("dblclick", () => {
-        taskEL.contentEditable = true;
-        taskEL.focus();
-      });
+      editTaskEL.addEventListener("click", editTaskFunction);
+
+      taskEL.addEventListener("dblclick", editTaskFunction);
 
       taskEL.addEventListener("blur", () => {
         taskEL.contentEditable = false;
       });
 
       deleteTaskEL.addEventListener("click", () => {
-        taskListEl.remove();
+        console.log(taskEL.isContentEditable);
+        if (
+          taskEL.classList.contains("task-completed") ||
+          taskEL.isContentEditable
+        ) {
+          taskListEl.remove();
+        } else {
+          alert("Please save the task and completed it");
+        }
+      });
+
+      completeTaskEL.addEventListener("click", function () {
+        if (!taskEL.classList.contains("task-completed")) {
+          taskEL.classList.add("task-completed");
+        } else {
+          taskEL.classList.remove("task-completed");
+        }
       });
     } else {
       alert("Please eneter a Task");
