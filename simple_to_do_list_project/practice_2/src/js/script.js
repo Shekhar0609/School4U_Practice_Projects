@@ -1,14 +1,5 @@
 const bodyElement = document.querySelector("body");
-let tasks = [
-  {
-    id: 1,
-    task: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ver",
-  },
-  {
-    id: 2,
-    task: "tatis pariatur laudantium cupiditate, quam ipsam optio dolores ut aspern",
-  },
-];
+let tasksArray = [];
 
 document.addEventListener("DOMContentLoaded", function () {
   bodyElement.className =
@@ -92,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteTaskEL.innerHTML = '<i class="fa-solid fa-xmark"></i>';
       editCompleteDeleteButtonsEl.appendChild(deleteTaskEL);
 
+      updateTask(taskInputEl.value);
+
       function editTaskFunction() {
         if (taskEL.classList.contains("task-completed")) {
           taskEL.contentEditable = false;
@@ -117,6 +110,10 @@ document.addEventListener("DOMContentLoaded", function () {
           taskEL.isContentEditable
         ) {
           taskListEl.remove();
+          tasksArray = tasksArray.filter((taskArray) => {
+            return taskArray.task !== taskEL.innerText;
+          });
+          console.log(tasksArray);
         } else {
           alert("Please save the task and completed it");
         }
@@ -128,7 +125,23 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           taskEL.classList.remove("task-completed");
         }
+
+        tasksArray.forEach((taskArray) => {
+          if (taskArray.task === taskEL.innerText) {
+            taskArray.isCompleted = !taskArray.isCompleted;
+          }
+        });
+        console.log(tasksArray);
       });
+
+      function updateTask(inputTask) {
+        tasksArray.push({
+          id: tasksArray.length + 1,
+          isCompleted: false,
+          task: inputTask,
+        });
+        console.log(tasksArray);
+      }
     } else {
       alert("Please eneter a Task");
     }
