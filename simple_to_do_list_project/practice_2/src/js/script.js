@@ -85,6 +85,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       updateTask(taskInputEl.value);
 
+      function updateTask(inputTask) {
+        tasksArray.push({
+          id: tasksArray.length + 1,
+          isCompleted: false,
+          task: inputTask,
+        });
+        console.log(tasksArray);
+      }
+
       function editTaskFunction() {
         if (taskEL.classList.contains("task-completed")) {
           taskEL.contentEditable = false;
@@ -101,6 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       taskEL.addEventListener("blur", () => {
         taskEL.contentEditable = false;
+
+        tasksArray.forEach((taskArray) => {
+          if (taskArray.task !== taskEL.innerText) {
+            taskArray.task = taskEL.innerText;
+          }
+        });
+        console.log(tasksArray);
       });
 
       deleteTaskEL.addEventListener("click", () => {
@@ -133,15 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         console.log(tasksArray);
       });
-
-      function updateTask(inputTask) {
-        tasksArray.push({
-          id: tasksArray.length + 1,
-          isCompleted: false,
-          task: inputTask,
-        });
-        console.log(tasksArray);
-      }
     } else {
       alert("Please eneter a Task");
     }
