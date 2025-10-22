@@ -1,5 +1,10 @@
 const bodyElement = document.querySelector("body");
 let tasksArray = [];
+let localStorageTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function renderTask(taskLocal) {
+  localStorage.setItem("tasks", JSON.stringify(taskLocal));
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   bodyElement.className =
@@ -94,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(tasksArray);
       }
 
+      renderTask(tasksArray);
+
       function editTaskFunction() {
         if (taskEL.classList.contains("task-completed")) {
           taskEL.contentEditable = false;
@@ -115,6 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (taskArray.task !== taskEL.innerText) {
             taskArray.task = taskEL.innerText;
           }
+
+          renderTask(tasksArray);
         });
         console.log(tasksArray);
       });
@@ -129,6 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
           tasksArray = tasksArray.filter((taskArray) => {
             return taskArray.task !== taskEL.innerText;
           });
+
+          renderTask(tasksArray);
+
           console.log(tasksArray);
         } else {
           alert("Please save the task and completed it");
@@ -147,6 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
             taskArray.isCompleted = !taskArray.isCompleted;
           }
         });
+
+        renderTask(tasksArray);
+
         console.log(tasksArray);
       });
     } else {
