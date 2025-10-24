@@ -1,1 +1,1 @@
-1. Create a function that returns the last element of an array.
+//1. Create a function that returns the last element of an array.
