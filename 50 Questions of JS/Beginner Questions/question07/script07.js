@@ -1,5 +1,6 @@
 // 7. In an array of objects filter out those objects which have gender's value male.
 
+// Sample Input:
 let userArrayObject = [
   {
     fname: "ram",
@@ -10,14 +11,15 @@ let userArrayObject = [
   { fname: "geeta", gender: "female" },
 ];
 
-function maleGender(objArr) {
-  let filterArray = objArr.filter((obj) => {
-    return obj.gender === "male";
+
+function maleGender(objArr) { // Function to filter male gender objects
+  let filterArray = objArr.filter((obj) => { // Using filter method to filter objects
+    return obj.gender === "male"; // Condition to check for male gender
   });
-  return filterArray;
+  return filterArray; // Returning the filtered array
 }
 
-maleGender(userArrayObject);
+maleGender(userArrayObject); // Calling the function with sample input
 // Output:
 // [ { fname: 'ram',
 //    gender: 'male' },
