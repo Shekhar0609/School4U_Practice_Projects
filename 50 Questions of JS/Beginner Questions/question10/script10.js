@@ -1,0 +1,1 @@
+// 10. Create an array of numbers and double each value using .map().
