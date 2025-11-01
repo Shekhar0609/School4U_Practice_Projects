@@ -9,8 +9,11 @@
   transition: background-color 0.2s ease-in-out; /* Smooth background color transition */
 }
 
-#inputButton:active {
+#inputButton:hover {
   background-color: #6a7282; /* Tailwind's gray-500 */
+}
+
+#inputButton:active {
   transform: scale(0.95); /* Slightly enlarge on hover */
 }
 
@@ -18,8 +21,11 @@
   background-color: #fdc700; /* Yellow for operators */
 }
 
-#inputButton.odmasCharacters:active {
+#inputButton.odmasCharacters:hover {
   background-color: #e6b800a5; /* Darker yellow on active */
+}
+
+#inputButton.odmasCharacters:active {
   transform: scale(0.95); /* Slightly enlarge on hover */
 }
 
