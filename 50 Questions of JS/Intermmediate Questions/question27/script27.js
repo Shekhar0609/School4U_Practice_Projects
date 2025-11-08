@@ -1,6 +1,7 @@
 /* 27. Write a javascript function to get the first element of an array. Passing a parameter 'n' will
 return the first 'n' elements of the array.*/
 
+// Example1
 function returnNofArrays(array, nNumnber) { // Defines a function named 'returnNofArrays' that takes an array and a number 'nNumnber'.
   if (!nNumnber) { // Checks if 'nNumnber' is undefined, null, 0, or an empty string.
     return array[0]; // If 'nNumnber' is falsy, returns the first element of the array.
@@ -22,6 +23,7 @@ console.log(returnNofArrays([4, 5, 6, 7, 8], 4)); // Calls the function and logs
 
 
 
+// Example2
 function returnNofArrays2(array, nNumnber) { // Defines a function named 'returnNofArrays2' that accepts an array and a number 'nNumnber'.
   if (!nNumnber) { // Checks if the number 'nNumnber' is missing or falsy.
     return array[0]; // If missing, returns only the first element of the array.

@@ -3,6 +3,7 @@ string.*/
 
 let fname = "shekhar narsimulu deekonda"; // Defines a string variable containing a name.
 
+// Example1
 function countLetters(letter) { // Defines a function named 'countLetters' that accepts a string.
   let countLetterObj = {}; // Initializes an empty object to store the letter counts (the frequency map).
 
@@ -21,6 +22,8 @@ function countLetters(letter) { // Defines a function named 'countLetters' that 
 countLetters(fname); // Calls the function with the sample string (for execution purposes).
 console.log(countLetters(fname)); // Calls the function and prints the resulting frequency map object to the console.
 
+
+// Example2
 function countLetters2(letter) { // Defines a function named 'countLetters2' that accepts a string ('letter').
   let countLetterObj2 = {}; // Initializes an empty object to store the frequency count of characters.
 
