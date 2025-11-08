@@ -1,8 +1,12 @@
 // 23. How would you check if a number is an integer?
 
+// Function to check if a number is an integer
 function isInteger(num) {
-  return Number.isInteger(num);
+  // Using Number.isInteger method
+  return Number.isInteger(num); // Returns true if num is an integer, false otherwise
 }
+
+// Alternative implementation without using Number.isInteger
 
 console.log(typeof 23, 23, isInteger(23)); // true
 console.log(typeof 3.14, 3.14, isInteger(3.14)); // false
