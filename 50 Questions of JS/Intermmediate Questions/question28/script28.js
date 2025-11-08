@@ -1,4 +1,4 @@
-/* 28. Write a javascript function to get the number of occurrences of each letter in specified
+/* 28. Write a javascript function to get the number of occurtunces of each letter in specified
 string.*/
 
 let fname = "shekhar narsimulu deekonda";
@@ -15,10 +15,11 @@ function countLetters(letter) {
       countLetterObj[letter] = 1;
     }
   });
-  console.log(countLetterObj);
+  return countLetterObj;
 }
 
 countLetters(fname);
+console.log(countLetters(fname));
 
 function countLetters2(letter) {
   let countLetterObj2 = {};
@@ -34,7 +35,8 @@ function countLetters2(letter) {
       countLetterObj2[currentLetter] = 1;
     }
   }
-  console.log(countLetterObj2);
+  return countLetterObj2;
 }
 
 countLetters2(fname);
+console.log(countLetters2(fname));
