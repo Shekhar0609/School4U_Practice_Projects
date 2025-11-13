@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+#aside.open {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 150px;
+}
+
+.sideBarArrow {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: blue;
+  padding: 0 5px;
+}
+
+#aside.open .sideBarArrow {
+  position: fixed;
+  top: 10px;
+  left: 140px;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: blue;
+  padding: 0 5px;
+}
+
+#aside .close {
+  display: none;
+}
+
+.list {
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.list a {
+  text-decoration: none;
+  color: white;
+  background-color: #485a54;
+  padding: 4px 10px;
+  transition: text-decoration 0.2s linear;
+}
+
+.list a:hover {
+  text-decoration: underline;
+}
