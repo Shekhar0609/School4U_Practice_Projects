@@ -19,23 +19,21 @@ body {
   width: 150px;
 }
 
-.sideBarArrow {
+.sideBarbutton {
   position: absolute;
   top: 10px;
   left: 0;
   font-size: 30px;
   cursor: pointer;
-  background-color: blue;
   padding: 0 5px;
 }
 
-#aside.open .sideBarArrow {
+#aside.open .sideBarbutton {
   position: fixed;
   top: 10px;
   left: 140px;
   font-size: 30px;
   cursor: pointer;
-  background-color: blue;
   padding: 0 5px;
 }
 
