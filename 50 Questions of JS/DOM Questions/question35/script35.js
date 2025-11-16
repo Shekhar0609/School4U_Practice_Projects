@@ -8,7 +8,7 @@ showPassword.addEventListener("click", (e) => { // Adds an event listener to the
   e.preventDefault(); // Prevents the default action of the toggle button.
   if (userPassword.type === "password") { // Checks if the current type of the password input is 'password'.
     userPassword.type = "text"; // If it is 'password', changes the input type to 'text' (shows characters).
-  } else { 
-    userPassword.type = "password"; 
+  } else { // Executes if the current type is not 'password' (i.e., it's 'text').
+    userPassword.type = "password"; // Changes the input type back to 'password' (hides characters).
   }
 });
