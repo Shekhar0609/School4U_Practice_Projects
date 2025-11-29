@@ -1,18 +1,21 @@
 /* 49. Write a formatDate(dateStr) function that returns a user-friendly format like Jan 1, 2025. Why is it better to
 centralize this logic in a utility? */
 
-const dateInput = document.getElementById("dateInput");
-const formatDateBtn = document.getElementById("formatDate");
-const resultSpan = document.getElementById("resultSpan");
+// Getting references to HTML elements
+const dateInput = document.getElementById("dateInput"); // Input field for date
+const formatDateBtn = document.getElementById("formatDate"); // Button to trigger date formatting
+const resultSpan = document.getElementById("resultSpan"); // Span to display the result
 
-function formatDate(dateStr) {
-  const date = new Date(dateStr);
-  const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" };
-  return date.toLocaleDateString("en-IN", options);
+// Function to format the date
+function formatDate(dateStr) { // dateStr in 'YYYY-MM-DD' format
+  const date = new Date(dateStr); // Create a Date object from the input string
+  const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" }; // Formatting options defined here
+  return date.toLocaleDateString("en-IN", options); // Return formatted date string
 }
 
-formatDateBtn.addEventListener("click", () => {
-  const enteredDate = dateInput.value;
-  const formattedDate = formatDate(enteredDate);
-  resultSpan.textContent = formattedDate;
+// Event listener for the button click to format the date
+formatDateBtn.addEventListener("click", () => { 
+  const enteredDate = dateInput.value; // Get the date entered by the user
+  const formattedDate = formatDate(enteredDate); // Call the formatDate function to format the date
+  resultSpan.textContent = formattedDate; // Display the formatted date in the result span
 });
