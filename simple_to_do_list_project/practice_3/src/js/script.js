@@ -3,11 +3,29 @@ const addBtn = document.getElementById("addBtn");
 const taskListsEL = document.getElementById("taskLists");
 const mainEl = document.getElementById("toDoListContainer");
 
+let API_URL = "https://694802c61ee66d04a44e786a.mockapi.io/api/v1/todo";
+
+fetchTasks();
+
 addBtn.addEventListener("click", function () {
   let taskValue = toDoInput.value.trim();
   if (taskValue !== "") {
     toDoInput.classList.remove("outline-red-500");
     toDoInput.classList.add("outline-green-500");
+  } else {
+    toDoInput.focus();
+    toDoInput.classList.add("outline-red-500");
+    toDoInput.classList.remove("outline-green-500");
+    return alert("Please enter the Taask");
+  }
+});
+
+async function fetchTasks() {
+  let response = await fetch(API_URL);
+  let data = await response.json();
+
+  data.forEach((taskItem) => {
+    console.log(taskItem);
 
     const taskListEl = document.createElement("li");
     taskListEl.id = "taskList";
@@ -34,7 +52,7 @@ addBtn.addEventListener("click", function () {
       "text-wrap",
       "overflow-y-auto"
     );
-    taskEl.textContent = taskValue;
+    taskEl.textContent = taskItem.taskText;
     taskListEl.append(taskEl);
     toDoInput.value = "";
 
@@ -96,10 +114,5 @@ addBtn.addEventListener("click", function () {
     });
 
     editBtnEl.addEventListener("click", editAndCheckTask);
-  } else {
-    toDoInput.focus();
-    toDoInput.classList.add("outline-red-500");
-    toDoInput.classList.remove("outline-green-500");
-    return alert("Please enter the Taask");
-  }
-});
+  });
+}
