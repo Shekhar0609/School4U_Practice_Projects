@@ -111,11 +111,11 @@ async function fetchTasks() {
         }
       }
 
-      trashEl.addEventListener("click", () => {
-        taskListEl.remove();
-      });
-
       editBtnEl.addEventListener("click", editAndCheckTask);
+
+      trashEl.addEventListener("click", () => {
+        trashTask(taskItem.id);
+      });
     });
   } else {
     const noTaskEl = document.createElement("p");
@@ -143,5 +143,16 @@ async function postData(taskValue) {
     fetchTasks();
   } else {
     alert("Error adding task: " + data.message);
+  }
+}
+
+async function trashTask(deleteTaskId) {
+  let deleteUrl = `${API_URL}/${deleteTaskId}`;
+  let response = await fetch(deleteUrl, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    fetchTasks();
   }
 }
