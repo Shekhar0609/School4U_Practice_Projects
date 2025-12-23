@@ -5,7 +5,7 @@ const mainEl = document.getElementById("toDoListContainer");
 
 let API_URL = "https://694802c61ee66d04a44e786a.mockapi.io/api/v1/todo";
 
-fetchTasks();
+document.addEventListener("DOMContentLoaded", fetchTasks);
 
 addBtn.addEventListener("click", function () {
   let taskValue = toDoInput.value.trim();
@@ -36,7 +36,7 @@ async function fetchTasks() {
         "justify-between",
         "gap-1",
         "w-full",
-        "h-25",
+        "h-22",
         "mb-2",
         "p-2",
         "bg-gray-700",
@@ -63,19 +63,30 @@ async function fetchTasks() {
       buttonContainerEl.classList.add(
         "inline-flex",
         "flex-col",
-        "justify-baseline",
+        "justify-between",
         "items-start",
         "gap-3",
-        "px-1"
+        "pl-1"
       );
       taskListEl.append(buttonContainerEl);
+
+      const editAndCheckContainer = document.createElement("div");
+      editAndCheckContainer.className = "relative";
+      buttonContainerEl.append(editAndCheckContainer);
 
       const editBtnEl = document.createElement("button");
       editBtnEl.id = "editBtn";
       editBtnEl.className =
-        "bg-blue-400 hover:bg-blue-300 hover:cursor-pointer hover:scale-120 duration-300 rounded-sm p-0.5";
+        "absolute bg-blue-400 hover:bg-blue-300 hover:cursor-pointer hover:scale-120 duration-300 rounded-sm p-0.5";
       editBtnEl.innerHTML = `<i class="fas fa-edit"></i>`;
-      buttonContainerEl.append(editBtnEl);
+      editAndCheckContainer.append(editBtnEl);
+
+      const saveBtnEl = document.createElement("button");
+      saveBtnEl.id = "saveBtn";
+      saveBtnEl.className =
+        "hidden absolute text-green-400 outline-green hover:text-green-200 hover:bg-green-500 hover:cursor-pointer hover:scale-120 duration-300 rounded-sm p-0.5";
+      saveBtnEl.innerHTML = `<i class="fas fa-check-circle"></i>`;
+      editAndCheckContainer.append(saveBtnEl);
 
       const trashEl = document.createElement("button");
       trashEl.id = "trashEl";
@@ -84,34 +95,28 @@ async function fetchTasks() {
       trashEl.innerHTML = `<i class="fas fa-trash-alt"></i>`;
       buttonContainerEl.append(trashEl);
 
-      function editAndCheckTask() {
+      editBtnEl.addEventListener("click", function editTask() {
         const isDisabled = taskEl.hasAttribute("contenteditable");
         if (isDisabled) {
           taskEl.removeAttribute("contenteditable");
-          editBtnEl.innerHTML = `<i class="fas fa-edit"></i>`;
-          editBtnEl.classList.remove(
-            "text-green-400",
-            "hover:bg-green-500",
-            "outline-green",
-            "hover:text-green-200"
-          );
-          editBtnEl.classList.add("bg-blue-400", "hover:bg-blue-300");
-          console.log(editBtnEl);
+          saveBtnEl.classList.add("hidden");
+          editBtnEl.classList.remove("hidden");
         } else {
           taskEl.setAttribute("contenteditable", "true");
           taskEl.focus();
-          editBtnEl.innerHTML = `<i class="fas fa-check-circle"></i>`;
-          editBtnEl.classList.remove("bg-blue-400", "hover:bg-blue-300");
-          editBtnEl.classList.add(
-            "text-green-400",
-            "hover:bg-green-500",
-            "outline-green",
-            "hover:text-green-200"
-          );
+          saveBtnEl.classList.remove("hidden");
+          editBtnEl.classList.add("hidden");
         }
-      }
+      });
 
-      editBtnEl.addEventListener("click", editAndCheckTask);
+      saveBtnEl.addEventListener("click", async function saveTask() {
+        console.log(taskItem.id, taskEl.textContent);
+        let response = await updateTask(taskItem.id, taskEl.textContent);
+
+        if (response.ok) {
+          fetchTasks();
+        }
+      });
 
       trashEl.addEventListener("click", () => {
         trashTask(taskItem.id);
@@ -155,4 +160,16 @@ async function trashTask(deleteTaskId) {
   if (response.ok) {
     fetchTasks();
   }
+}
+
+async function updateTask(taskId, updatedText) {
+  let updatedUrl = `${API_URL}/${taskId}`;
+
+  let response = await fetch(updatedUrl, {
+    method: "PUT",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ taskText: updatedText }),
+  });
+
+  return response;
 }
